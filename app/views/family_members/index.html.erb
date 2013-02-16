@@ -1,0 +1,30 @@
+<h1>Listing family_members</h1>
+
+<%= link_to 'Create new family member.', new_family_member_path %>
+<br/>
+<br/>
+
+<table cellspacing="0" cellpadding="5" style="width: 100%;">
+  <tr style="background-color: #217AD3; padding-top: 10px; color: #ffffff; text-align: left">
+  	<th>Name</th>
+  	<th>Room</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @family_members.each do |family_member| %>
+  <tr>
+  	<td><%= family_member.name %></td>
+  	<td><%= family_member['room_name'] %></td>
+    <td><%= link_to 'Show', family_member %></td>
+    <td><%= link_to 'Edit', edit_family_member_path(family_member) %></td>
+    <td><%= link_to 'Destroy', family_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br/>
+<hr/>
+<%= link_to 'Back to messages.', comm_events_path %>
+

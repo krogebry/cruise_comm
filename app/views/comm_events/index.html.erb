@@ -1,0 +1,38 @@
+<h1>The Clog ( Cruise Log )</h1>
+<div style="padding-bottom: 20px;"> <%= link_to 'Say something awesome.', new_comm_event_path %> </div>
+<div style="padding-bottom: 20px;"><a href="/pictures/" />Pictures</a></div> 
+
+<table cellspacing="0" cellpadding="5" style="width: 100%;">
+  <tr style="background-color: #217AD3; padding-top: 10px; color: #ffffff; text-align: left">
+    <th></th>
+	<!--
+    <th></th>
+    <th></th>
+	-->
+    <th>Created</th>
+    <th>User</th>
+    <th>Subject</th>
+    <th>Body</th>
+  </tr>
+
+<% @comm_events.each do |comm_event| %>
+  <tr>
+    <td style="width: 50px;"><%= link_to 'Show', comm_event %></td>
+	<!--
+    <td style="width: 50px;"><%= link_to 'Edit', edit_comm_event_path(comm_event) %></td>
+    <td style="width: 50px;"><%= link_to 'Destroy', comm_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	-->
+
+  	<td style="width: 200px;"><%= comm_event.created_at %></td>
+  	<td style="width: 100px;"><%= (comm_event.family_member != nil ? comm_event.family_member.name : comm_event.username ) %></td>
+
+	<!-- <td style="width: 200px;"><%= (comm_event.subject.size > 20 ? "%s..." % comm_event.subject[0,17] : comm_event.subject ) %></td> -->
+  	<td style="width: 200px;"><%= comm_event.subject %></td>
+
+  	<td><%= (comm_event.body.size > 40 ? "%s..." % comm_event.body[0,37] : comm_event.body ) %></td>
+  </tr>
+<% end %>
+</table>
+
+<hr />
+<br />

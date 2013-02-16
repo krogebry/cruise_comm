@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>On <%= @comm_event.created_at %> <%= (@comm_event.family_member != nil ? @comm_event.family_member.name : @comm_event.username ) %> posted...</h1>
+
+<div style="background-color: #217AD3; padding: 10px; color: #ffffff; text-align: center"><%= @comm_event.subject %></div>
+<div style="padding: 10px;border: 1px solid #000000;"><%= @comm_event.body %></div>
+
+<br/><br/>
+<hr/>
+
+<!--
+<%= link_to 'Edit', edit_comm_event_path(@comm_event) %> |
+-->
+<%= link_to 'Back to messages.', comm_events_path %>

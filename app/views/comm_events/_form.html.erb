@@ -1,0 +1,33 @@
+<%= form_for(@comm_event) do |f| %>
+  <% if @comm_event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comm_event.errors.count, "error") %> prohibited this comm_event from being saved:</h2>
+
+      <ul>
+      <% @comm_event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<table cellspacing="0" cellpadding="0" style="width: 100%;">
+	<tr>
+		<td style="width: 100px;">Who are you?</td>
+		<!-- <td><input style="width: 400px;" type="text" name="comm_event[username]" value="<%= @comm_event.username %>"></td> -->
+		<td><select name="comm_event[family_member_id]"><% @family_members.each do |member| %>
+			<option value="<%= member.id %>"><%= member.name %></option>
+		<% end %></select></td>
+	</tr><tr>
+		<td>Subject:</td>
+		<td><input style="width: 400px;" type="text" name="comm_event[subject]" value="<%= @comm_event.subject %>"></td>
+	</tr><tr>
+		<td>Body:</td>
+		<td><textarea style="width: 400px; height: 100px;" name="comm_event[body]"><%= @comm_event.body %></textarea>
+	</tr>
+	</table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

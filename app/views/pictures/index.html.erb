@@ -1,0 +1,8 @@
+<h1>Pictures</h1>
+
+<% @pictures.each do |pic| %>
+  	<div><img height="200" src="/pictures/<%= File.basename( pic ) %>" /></div>
+	<!--
+  	<div><a href="/pictures/<%= File.basename( pic ) %>"><%= File.basename( pic ) %></a></div>
+  	-->
+<% end %>

@@ -1,0 +1,30 @@
+
+<%= form_for(@family_member) do |f| %>
+  <% if @family_member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@family_member.errors.count, "error") %> prohibited this family_member from being saved:</h2>
+
+      <ul>
+      <% @family_member.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<table cellspacing="0" cellpadding="0" style="width: 100%;">
+	<tr>
+		<td style="width: 33%;">Name:</td>
+		<td><input style="width: 400px;" type="text" name="family_member[name]" value="<%= @family_member.name %>"></td>
+	</tr><tr>
+		<td>Room:</td>
+		<td><select name="family_member[room_id]"><% @rooms.each do |room_id,room_info| %>
+			<option value="<%= room_id %>"><%= room_info['name'] %></option>
+		<% end %></select></td>
+	</tr>
+	</table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

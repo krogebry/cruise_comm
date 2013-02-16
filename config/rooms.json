@@ -1,0 +1,20 @@
+{
+	"12_247": {
+		"deck": 12,
+		"name": "Bryan and Kira's room",
+		"description": "Kira's army lives here; wolverines!!",
+		"room_number": 247
+	},
+	"05_228": {
+		"deck": 5,
+		"name": "Lori and Jim's room",
+		"description": "Team Hestead!",
+		"room_number": 228
+	},
+	"05_220": {
+		"deck": 5,
+		"name": "GeePa Joe and Momma Ginny",
+		"description": "They started it all.",
+		"room_number": 220
+	}
+}
